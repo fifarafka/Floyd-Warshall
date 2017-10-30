@@ -8,6 +8,6 @@ public class App {
 		FloydWarshall.readGraphFromFile();
 		FloydWarshall.initDistPredecessorMatrix();
 		FloydWarshall.floydWarshall();
-		FloydWarshall.printDistanceAndPath(0, 19);
+		FloydWarshall.printDistanceAndPath(0, 30);
 	}
 }

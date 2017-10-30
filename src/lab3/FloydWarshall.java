@@ -33,12 +33,12 @@ public class FloydWarshall {
 		String graf = "punkty.txt";
 		String line = "";
 		String separator = "; ";
-		String[] parsedLine; 		
+		String[] parsedLine; 
 		try (BufferedReader br = new BufferedReader(new FileReader(graf))) {
 			while ((line =br.readLine()) != null) {
 				if (!line.equals("")) {
 					parsedLine = line.split(separator);
-					graph[Integer.valueOf(parsedLine[0])-1][Integer.valueOf(parsedLine[1])-1] = Integer.valueOf(parsedLine[1]);
+					graph[Integer.valueOf(parsedLine[0])-1][Integer.valueOf(parsedLine[1])-1] = Integer.valueOf(parsedLine[2]);
 				}
 			}
 		} catch (FileNotFoundException e) {
@@ -55,8 +55,10 @@ public class FloydWarshall {
         
 		for (i = 0; i < 20; i++) {
             for (j = 0; j < 20; j++) {
-                dist[i][j] = graph[i][j];
-                predecessor[i][j] = i;
+            		if (graph[i][j]!=0) {
+            			dist[i][j] = graph[i][j];
+            			predecessor[i][j] = i;
+            		}
             }
 		}
 	}
